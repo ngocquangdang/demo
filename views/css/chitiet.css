@@ -1,0 +1,123 @@
+.content1 {
+    background: white;
+    padding: 30px;
+}
+
+.link-col-right {
+    padding-left: 15px;
+}
+
+.col-right {
+    background: #e2e2e2;
+}
+
+.tensach, .gia {
+    font-size: 20px;
+    font-weight: 600;
+}
+.gia {
+    color: #5e5e5e;
+}
+
+#content-detail input[type="text"] {
+    padding: 12px 15px 12px 15px;
+    width: 45px;
+}
+#content-detail .mua {
+    padding: 15px;
+    width: 100px;
+    background: orange;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 4px;
+    text-decoration: none !important;
+    margin-left: 10px;
+}
+
+.yeuthich, .edit {
+    text-decoration: none !important;
+    color: #5e5e5e;
+}
+.yeuthich {
+    margin-right: 50px;
+}
+.yeuthich:hover {
+    color: red;
+}
+
+#content-detail .nav a:hover {
+    background: none !important;
+    color: #5e5e5e !important;
+}
+#content-detail .nav a {
+    color: #5e5e5e !important;
+}
+
+#content-detail .link-end {
+    color: orange;
+    font-weight: 600;
+}
+
+
+.bangchitiet {
+    background: white;
+    padding: 15px;
+}
+table {
+    width: 100%;
+    border: 1px solid #d5d5d5;
+}
+tr {
+    height: 50px;
+    border: 1px solid #d5d5d5;
+}
+th {
+    width: 30%;
+    text-align: center;
+    border: 1px solid #d5d5d5;
+}
+
+.thongtinkhac {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .tensach, .gia {
+        font-size: 16px;
+    }
+    .review {
+        font-size: 12px;
+    }
+    .link-col-right {
+        font-size: 11px;
+    }
+    #content-detail .nav a {
+        font-size: 11px;
+    }
+    .link-end {
+        padding-left: 10px;
+        font-size: 10px;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .tensach, .gia {
+        font-size: 18px;
+    }
+    .review {
+        font-size: 13px;
+    }
+    .link-col-right {
+        font-size: 12px;
+    }
+    #content-detail .nav a {
+        font-size: 12px;
+    }
+    .link-end {
+        padding-left: 12px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,107 @@
+html
+    head
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/css.css')
+        link(rel='stylesheet', href='css/store.css')
+        link(rel='stylesheet', href='css/chitiet.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+        // load bootstrap css
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+
+
+
+    body
+        .container-header
+            .container
+                .header-content.navbar.row.justify-content-between.align-items-center
+                    .logo-now.col-auto
+                        span
+                            a(href='/')
+                                img(src='/desktop-app/assets/img/nowvn.png?337bc295809d4e134796d391a877e5c7', alt='Nowvn')
+                    .select-local.col-auto
+                        .dropdown
+                            #local-dropdown.dropdown-toggle(role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') TP. HCM
+                            .dropdown-menu
+                                .dropdown-item
+                                    span.name.col TP. HCM
+                                    //- span.count.col-auto 26181 &dstrok;&#x1ECB;a &dstrok;i&#x1EC3;m
+                    .main-nav.col
+                        span.nav-item.active Sách
+                        span.nav-item Điện Thoại
+                        span.nav-item Máy Tính Bảng  
+                        span.nav-item Sản Phẩm
+                        a.nav-item(href='/User') User
+                        .more-nav
+                            .dropdown
+                                #category-more.dropdown-toggle(role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                    span.btn-more-nav
+                                        i.fas.fa-circle
+                                        i.fas.fa-circle
+                                        i.fas.fa-circle
+                                .dropdown-menu(aria-labelledby='category-more')
+                                    span.dropdown-item Hàng Xách Tay
+                    .header-icon-search.col-auto
+                        span(data-toggle='modal', data-target='#modal-search')
+                            span.icon.icon-search-dark
+                    .language.dropdown.col-auto
+                        #dropdownMenuButton.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                            span.icon.icon-lag-vn
+                        .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                            .dropdown-item
+                                span.icon.icon-lag-en
+                                span.language-item Tiếng Anh
+                            .dropdown-item
+                                span.icon.icon-lag-vn
+                                span.language-item Tiếng Việt
+                    .user-acc.col-auto
+                        if (!user)
+                            a.btn.btn-none-bg.btn-login(href='Auth/login') Đăng Nhập
+                            a.btn.btn-none-bg.btn-login(href="Auth/signup") Signup
+                        else
+
+                            p= user.name
+                    
+
+
+        //- ------------------------------------------------------------------------------------
+
+        .container
+            block content 
+        // Footer
+        .footer.pt-5
+            footer.page-footer.font-small.special-color-dark.pt-4
+                // Footer Elements
+                .container
+                    // Social buttons
+                    ul.list-unstyled.list-inline.text-center
+                        li.list-inline-item
+                            a.btn-floating.btn-fb.mx-1
+                                i.fa.fa-facebook  
+                        li.list-inline-item
+                            a.btn-floating.btn-tw.mx-1
+                                i.fa.fa-twitter  
+                        li.list-inline-item
+                            a.btn-floating.btn-gplus.mx-1
+                                i.fa.fa-google-plus  
+                        li.list-inline-item
+                            a.btn-floating.btn-li.mx-1
+                                i.fa.fa-linkedin  
+                        li.list-inline-item
+                            a.btn-floating.btn-dribbble.mx-1
+                                i.fa.fa-dribbble  
+                    // Social buttons
+                // Footer Elements
+                
+            // Copyright
+            .footer-copyright.text-center.py-3
+                | &copy; 2018 Copyright:
+               
+            // Copyright
+        // Footer
+
+ 
+
+           

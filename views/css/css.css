@@ -1,0 +1,23 @@
+.hinh1 {
+    padding: 0 21px 0 21px;
+}
+.content {
+    background: white;
+    padding: 10px 20px 20px 20px;
+}
+.content .title1 {
+    font-size: 18px;
+    color: #5e5e5e;
+}
+.content a {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    color: #5e5e5e;
+}
+.content a:hover {
+    background: none !important;
+    color: orange;
+}
+.content .caption{
+    padding-bottom: 40px;
+}

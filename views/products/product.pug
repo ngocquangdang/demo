@@ -1,0 +1,33 @@
+extends ../layouts/common
+
+block   content
+
+    h1 
+        span Product 
+    .d-flex.align-itms-center
+        form.ml-auto(action="/User/search", method="get", class="d-flex")
+            input(type="text", name="q" ,class="form-control")
+            button(class="btn btn-primary ml-2" ) Search
+    
+    .row
+        each val in products
+            .col-sm-3
+                .card(style='width: 15rem; heigh: 30rem')
+                    img.card-img-top(src=val.image, alt='Card image cap')
+                    .card-body
+                        h5.card-title= val.name
+                        p.card-text= val.description.slice(0,90)+' ...'
+                        a.btn.btn-primary(href='cart/add/' + val.id) Add to card
+
+    nav(aria-label='Page navigation example')
+        ul.pagination
+            li.page-item
+                a.page-link(href='#') Previous
+            li.page-item
+                a.page-link(href='#') 1
+            li.page-item
+                a.page-link(href='#') 2
+            li.page-item
+                a.page-link(href='#') 3
+            li.page-item
+                a.page-link(href='#') Next

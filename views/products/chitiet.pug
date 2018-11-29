@@ -1,0 +1,74 @@
+extends ../layouts/common
+
+block   content
+    .container
+        // CONTENT
+        #content-detail.hidden-xs
+        .container
+            .content1
+                .row
+                    .col-sm-3
+                        img.img-responsive(src= book.image)
+                    .col-sm-6
+                        div
+                            span.tensach= book.name
+                            br
+                            span.gia= book.price +'đ'
+                            
+                        hr
+                        div
+                            label Số Lượng: 
+                            input(type='text', name='soluong', value='1', autocomplete='off')
+                            a.mua(href='') Mua
+                            br
+                            br
+                            a.yeuthich(href='')
+                            span.fa.fa-heart
+                            |  Yêu thích
+                            hr
+                            a.edit(href='')
+                            span.fa.fa-edit
+                            |  Thêm nhận xét 
+                        hr
+                        .review
+                            span Review về sản phẩm: 
+                            span= book.description
+                            hr
+                    .col-sm-3.col-right
+                        br
+                        .link-col-right
+                            span Nhà cung cấp: 
+                        hr
+                        .link-col-right
+                            span Hình thức: 
+                        hr
+                        .link-col-right
+                            span Tinhf trạng: 
+                        hr      
+                           
+            br
+            .container
+                .bangchitiet
+                    .thongtinkhac
+                        span Thông Tin Khác
+                    table
+                        tr
+                            th Mã Hàng
+                            td
+                        tr
+                            th Nhà Cung Cấp
+                            td
+                        tr
+                            th Tác Giả
+                            td
+                        tr
+                            th Khối Lượng
+                            td
+                        tr
+                            th Kích Thước
+                            td
+                        tr
+                            th Ngôn Ngữ
+                            td
+                       
+        // /CONTENT

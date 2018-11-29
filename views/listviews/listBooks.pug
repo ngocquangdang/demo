@@ -1,0 +1,52 @@
+extends ../layouts/common
+
+block  content
+    .container.pt-1
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+            form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2(type='search',name = 'q', placeholder='Search', aria-label='Search')
+                button.btn.btn-outline-success.my-2.my-sm-0 Search
+    .content
+        .row
+            each val in book
+                .col-md-2.col-sm-3.col-xs-6
+                    a(href='/' + val.id)
+                        img.thumbnail.img-responsive(src= val.image)
+                    .caption
+                        h5.card-title= val.name
+                        span.card-text= val.price +'đ'
+
+        if pages > 0
+        nav(aria-label='Page navigation example')
+            ul.pagination
+                if current  === 1
+                    li.page-item
+                        a.page-link Previous
+                else
+                    li.page-item
+                        a.page-link(href='/book/1') Previous
+
+                //- page 1 -> n       
+                - var i = (Number(current) > 5 ? Number(current) - 4 : 1)
+                if i!== 1
+                    li.disabled
+                        a ...
+                each i in (Number(current) + 4)  
+                    each i in pages
+                
+                        if i == current
+                            a.page-link= i 
+                        else
+                            li.page-item
+                                a.page-link(href='/book/' + i) 1
+                        if (i == Number(current) + 4 && i < pages)
+                            li.disabled
+                                a ...
+                //- page 1 -> n  
+
+                if current === pages
+                    li.page-item
+                        a.page-link Next
+                else
+                    li.page-item
+                        a.page-link(href='/book/' + pages)  Next     

@@ -1,0 +1,18 @@
+extends ../layouts/common
+block   content
+
+    h1 Create User
+    if  errors 
+        each err in errors
+            .alert.alert-danger= err
+    form(action="/User/create", method="post", enctype="multipart/form-data")
+        .form-group
+            lable(for="name") Name
+            input#name.form-control(type="text", name="name", value=value  ? value.name : '')
+        .form-group
+            lable(for="phone") Phone
+            input#phone.form-control(type="text", name="phone",  value=value ? value.phone : '')
+        .form-group
+            lable(for="img") Image
+            input#img.form-control-file(type="file", name="img")
+        button(class="btn btn-primary" ) Create

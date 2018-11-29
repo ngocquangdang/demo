@@ -4,7 +4,7 @@ var User = require('../models/users.model')
 
 module.exports = function(req,res,next){
     if(!req.signedCookies.sessionId){
-        // var sessionId =shortId.generate()
+        var sessionId =shortId.generate()
         res.cookie('sessionId', sessionId,{
             signed: true
         })

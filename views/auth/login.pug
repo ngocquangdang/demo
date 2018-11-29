@@ -1,0 +1,39 @@
+extends ../layouts/common
+block   content
+
+    //- h1 Login
+    //- if  errors 
+    //-     each err in errors
+    //-         .alert.alert-danger= err
+    //- form( method="post")
+    //-     .form-group
+    //-         lable(for="email") Email
+    //-         input#email.form-control(type="text", name="email", value=values  ? values.email : '')
+    //-     .form-group
+    //-         lable(for="password") Password
+    //-         input#password.form-control(type="password", name="password",  value=values ? values.password : '')
+    //-     button(class="btn btn-primary " ) Login
+    .container
+        .col-sm-6.col-sm-offset-3
+            h1
+                span.fa.fa-sign-in
+                |  Login
+            // show any messages that come back with authentication
+
+            // LOGIN FORM
+            form( method='post')
+                .form-group
+                    label Email
+                    input.form-control(type="text", name="email", value=values  ? values.email : '')
+                .form-group
+                    label Password
+                    input.form-control(type="password", name="password",  value=values ? values.password : '')
+                button.btn.btn-warning.btn-lg(type='submit') Login
+            hr
+            p
+                | Need an account? 
+                a(href='/signup') Signup
+            p
+                | Or go 
+                a(href='/') home
+                | .
