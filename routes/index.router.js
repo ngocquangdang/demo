@@ -1,14 +1,16 @@
 const express = require('express')
 
-const controllers = require('../controllers/index.controller')
+const indexs = require('../controllers/index.controller')
+const logins = require('../controllers/login.controller')
 var router = express.Router()
 
-router.get('/', controllers.index)
-
-// router.get('/book', controllers.listBook)
-router.get('/book/:page', controllers.pagination)
-router.get('/search', controllers.searchBook)
-router.get('/:id', controllers.viewBookbyId)
+router.get('/', indexs.index)
+router.get('/login', logins.login)
+router.post('/login', logins.postlogin)
+// router.get('/book', index.listBook)
+router.get('/book/:page', indexs.pagination)
+router.get('/search', indexs.searchBook)
+router.get('/:id', indexs.viewBookbyId)
 
 
 

@@ -57,12 +57,11 @@ html
                                 span.icon.icon-lag-vn
                                 span.language-item Tiếng Việt
                     .user-acc.col-auto
-                        if (!user)
-                            a.btn.btn-none-bg.btn-login(href='Auth/login') Đăng Nhập
-                            a.btn.btn-none-bg.btn-login(href="Auth/signup") Signup
+                        if (!users)
+                            a.btn.btn-none-bg.btn-login(href='/login') Đăng Nhập
+                            a.btn.btn-none-bg.btn-login(href='/signup') Signup
                         else
-
-                            p= user.name
+                            span= users.name
                     
 
 

@@ -1,43 +1,40 @@
 extends ../layouts/common
 
 block   content
-    if(!users)
-        p đăng nhập
-    else  
-        h1 
-            span User
-            a.btn.btn-primary.ml-4(href="/User/create") Create
-            
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='/') Home
-            
-            #navbarNav.collapse.navbar-collapse
-                ul.navbar-nav
-                    li.nav-item.active
-                        a.nav-link(href='/') Home
-                    li.nav-item
-                        a.nav-link(href='/User') Users
-                    //- li.nav-item
-                    //-     a.nav-link(href='/Product') Product
-                    li.nav-item
-                        a.nav-link(href='/createBook') Create Book
 
-        .d-flex.align-itms-center
-            form.ml-auto(action="/User/search", method="get", class="d-flex")
-                input(type="text", name="q" ,class="form-control")
-                button(class="btn btn-primary ml-2" ) Search
+        
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='/') Home
+        
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav
+                li.nav-item.active
+                    a.nav-link(href='/') Home
+                li.nav-item
+                    a.nav-link(href='/User') Users
+                //- li.nav-item
+                //-     a.nav-link(href='/Product') Product
+                li.nav-item
+                    a.nav-link(href='/createBook') Create Book
 
-        table.table
+    .d-flex.align-itms-center
+        form.ml-auto(action="/User/search", method="get", class="d-flex")
+            input(type="text", name="q" ,class="form-control")
+            button(class="btn btn-primary ml-2" ) Search
+    h1 
+        span User
+        a.btn.btn-primary.ml-4(href="/User/create") Create
+    table.table
+        tr
+            th Image
+            th Name
+            th Phone
+            th Actions
+        each val in users
             tr
-                th Image
-                th Name
-                th Phone
-                th Actions
-            each val in users
-                tr
-                    td
-                        img(src= val.image,width="64")
-                    td= val.name
-                    td= val.phone
-                    td
-                        a.btn.btn-light(href="/User/" + val.id)  view
+                td
+                    img(src= val.image,width="64")
+                td= val.name
+                td= val.phone
+                td
+                    a.btn.btn-light(href="/User/" + val.id)  view
