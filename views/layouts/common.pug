@@ -46,22 +46,16 @@ html
                     .header-icon-search.col-auto
                         span(data-toggle='modal', data-target='#modal-search')
                             span.icon.icon-search-dark
-                    .language.dropdown.col-auto
-                        #dropdownMenuButton.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                            span.icon.icon-lag-vn
-                        .dropdown-menu(aria-labelledby='dropdownMenuButton')
-                            .dropdown-item
-                                span.icon.icon-lag-en
-                                span.language-item Tiếng Anh
-                            .dropdown-item
-                                span.icon.icon-lag-vn
-                                span.language-item Tiếng Việt
+                    
                     .user-acc.col-auto
-                        if (!users)
+                        if !user
                             a.btn.btn-none-bg.btn-login(href='/login') Đăng Nhập
                             a.btn.btn-none-bg.btn-login(href='/signup') Signup
                         else
-                            span= users.name
+                            
+                            span.nav-item= user.name
+                            a.btn.btn-none-bg.btn-login(href='/logout') Logout
+
                     
 
 

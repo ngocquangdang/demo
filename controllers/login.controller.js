@@ -35,3 +35,7 @@ module.exports.postlogin = function(req,res,next){
     })
     res.redirect('/')
 }
+module.exports.logout = function(req, res) {
+    req.logout();
+    res.redirect('/');
+}
