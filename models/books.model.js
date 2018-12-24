@@ -7,4 +7,5 @@ var productSchema = new mongooes.Schema({
     image: String,
 })
 var Book = mongooes.model('Book', productSchema, 'books') //products : collection
+
 module.exports = Book 

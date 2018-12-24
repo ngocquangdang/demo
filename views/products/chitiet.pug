@@ -1,74 +1,202 @@
 extends ../layouts/common
 
 block   content
-    .container
-        // CONTENT
-        #content-detail.hidden-xs
+
+    .now-detail-restaurant.clearfix
         .container
-            .content1
-                .row
-                    .col-sm-3
-                        img.img-responsive(src= book.image)
-                    .col-sm-6
-                        div
-                            span.tensach= book.name
-                            br
-                            span.gia= book.price +'đ'
-                            
-                        hr
-                        div
-                            label Số Lượng: 
-                            input(type='text', name='soluong', value='1', autocomplete='off')
-                            a.mua(href='') Mua
-                            br
-                            br
-                            a.yeuthich(href='')
-                            span.fa.fa-heart
-                            |  Yêu thích
-                            hr
-                            a.edit(href='')
-                            span.fa.fa-edit
-                            |  Thêm nhận xét 
-                        hr
-                        .review
-                            span Review về sản phẩm: 
-                            span= book.description
-                            hr
-                    .col-sm-3.col-right
-                        br
-                        .link-col-right
-                            span Nhà cung cấp: 
-                        hr
-                        .link-col-right
-                            span Hình thức: 
-                        hr
-                        .link-col-right
-                            span Tinhf trạng: 
-                        hr      
-                           
+            .detail-restaurant-img
+                img(src= book.image, alt= book.name)
+            .detail-restaurant-info
+                .kind-restaurant
+                    | 
+                    
+                .name-restaurant= book.name
+                .address-restaurant 459- Tôn Đức Thắng Đà Nẵng
+                .rating
+                    .stars
+                        span.full
+                            i.fas.fa-star
+                        span.full
+                            i.fas.fa-star
+                        span.full
+                            i.fas.fa-star
+                        span.half
+                            i.fas.fa-star-half-alt
+                        span.empty
+                            i.far.fa-star
+                    a.number-review(href='', rel='noopener noreferrer', target='_blank') 18 bình luận về sản phẩm
+                    hr              
+                
+                .now-bill-restaurant(style='')
+                    .bill-restaurant-header
+                        button.cart-stats(disabled='')
+                            span.txt-bold 0
+                            | &nbsp;ph&#x1EA7;n&nbsp;-&nbsp;
+                            span.txt-bold 0
+                            | &nbsp;ng&#x1B0;&#x1EDD;i
+                        button.btn-reset(disabled='') X&oacute;a
+                        .btn-order-group &Dstrok;&#x1EB7;t theo nh&oacute;m
+                        .create-order
+                            | &Dstrok;&#x1A1;n h&agrave;ng t&#x1EA1;o b&#x1EDF;i 
+                            span.txt-blue
+                        .block-tooltip
+                            span.close x
+                            div
+                                | Nhi&#x1EC1;u ng&#x1B0;&#x1EDD;i c&ugrave;ng &dstrok;&#x1EB7;t, 
+                                br
+                                | ti&#x1EC7;n l&#x1EE3;i v&agrave; nhanh h&#x1A1;n
+                    .now-order-card-group
+                    .row-bill-restaurant
+                        .row
+                            .col C&#x1ED9;ng
+                            .col-auto
+                                span.txt-bold
+                                    | 0
+                                    span(style='font-weight: 400;position: relative;top: -9px;font-size: 10px;right: 0;')
+                    .row-bill-restaurant
+                        .row
+                            .col Ph&iacute; v&#x1EAD;n chuy&#x1EC3;n (Est.)
+                            .col-auto
+                                | 5,500&dstrok;/km
+                                span.link.txt-blue  [?]
+                    .row-bill-restaurant.txt-center.input-promocode Nh&#x1EAD;p m&atilde; khuy&#x1EBF;n m&atilde;i &#x1EDF; b&#x1B0;&#x1EDB;c ho&agrave;n t&#x1EA5;t
+                    .row-bill-restaurant.relative
+                        .row
+                            .col T&#x1ED5;ng c&#x1ED9;ng
+                            .col-auto
+                                span.txt-bold.txt-blue.font16
+                                    | 0
+                                    span(style='font-weight: 400;position: relative;top: -9px;font-size: 10px;right: 0;')
+                    button.btn.btn-red
+                        i.fas.fa-check-circle
+                        |  &Dstrok;&#x1EB7;t tr&#x1B0;&#x1EDB;c
+                    //- #modal-share-order-group.modal.fade.modal-share-order-group(tabindex='-1', role='dialog', aria-hidden='true')
+                    //-     .modal-dialog(role='document')
+                    //-     .modal-content
+                    //-         span.close(data-dismiss='modal') x
+                    //-         .modal-header Chia s&#x1EBB; v&#x1EDB;i nh&oacute;m c&#x1EE7;a b&#x1EA1;n
+                    //-         .modal-body
+                    //-         .group-share-left
+                    //-             canvas(height='96', width='96', style='height: 128px; width: 128px;')
+                    //-             p
+                    //-             a(href='', rel='noopener noreferrer', target='_blank') M&#x1EDF; tab m&#x1EDB;i
+                    //-         .group-share-content
+                    //-             h5.group-share-title Sao ch&eacute;p link v&agrave; g&#x1EED;i cho nh&oacute;m
+                    //-             input(type='text', readonly='', value='', style='background-color: rgb(255, 255, 255);')
+                    //-             ul.list-social
+                    //-             li
+                    //-                 a#share-facebook(href='', rel='noopener noreferrer', target='_blank', title='Share on facebook')
+                    //-                 i.fab.fa-facebook-f
+                    //-             li
+                    //-                 a#share-mail(href='', rel='noopener noreferrer', target='_blank', title='Share on mail')
+                    //-                 i.fas.fa-envelope
+                    //- #modal-list-user-order.modal.fade.modal-list-user-order(tabindex='-1', role='dialog', aria-hidden='true')
+                    //-     .modal-dialog(role='document')
+                    //-     .modal-content
+                    //-         span.close(data-dismiss='modal') x
+                    //-         .modal-header TR&#x1EA0;NG TH&Aacute;I &Dstrok;&#x1EB6;T M&Oacute;N THEO NH&Oacute;M
+                    //-         .modal-body
+                    //-         .order-control
+                    //-             span.txt-bold 0
+                    //-             span &nbsp;&Dstrok;ang ch&#x1ECD;n
+                    //-             span.margin-05 |
+                    //-             span.txt-bold 0
+                    //-             span &nbsp;Ho&agrave;n t&#x1EA5;t
+                    //-         .detail-bill
+                    //-             .header-bill
+                    //-             .row.row-bill
+                    //-                 .col.col-user Th&agrave;nh vi&ecirc;n
+                    //-                 .col.col-number S&#x1ED1; l&#x1B0;&#x1EE3;ng
+                    //-                 .col.col-status Tr&#x1EA1;ng th&aacute;i
+                    //-                 .col.col-user-control
+                    //-             .body-bill
+                    //-         .modal-footer.content-right
+                    //-         button.btn.btn-gray(type='button', data-dismiss='modal') &Dstrok;&oacute;ng
+                    //-         button.btn.btn-red(type='button', data-dismiss='modal') &Dstrok;&#x1EB7;t h&agrave;ng b&acirc;y gi&#x1EDD;
+                    //- #modal-delivery-alert-cart_message_alert.modal.fade.modal-alert(tabindex='-1', role='dialog', aria-hidden='true', data-backdrop='static')
+                    //-     .modal-dialog.modal-noti(role='document')
+                    //-     .modal-content
+                    //-         span.close(data-dismiss='modal') x
+                    //-         .modal-header.txt-bold.font13
+                    //-         span.txt-red-dark Now
+                    //-         |  Th&ocirc;ng b&aacute;o
+                    //-         .modal-body
+                    //-         .col.col-10
+                    //-             p.font15
+                    //-             span
+                    //-         .modal-footer.content-right
+                    //-         button.btn.btn-red(type='button', data-dismiss='modal') Ok
+
+    br
+    .container
+        .review
+            span Review về sản phẩm: 
             br
-            .container
-                .bangchitiet
-                    .thongtinkhac
-                        span Thông Tin Khác
-                    table
-                        tr
-                            th Mã Hàng
-                            td
-                        tr
-                            th Nhà Cung Cấp
-                            td
-                        tr
-                            th Tác Giả
-                            td
-                        tr
-                            th Khối Lượng
-                            td
-                        tr
-                            th Kích Thước
-                            td
-                        tr
-                            th Ngôn Ngữ
-                            td
-                       
+            span= book.description 
+        .bangchitiet
+            .thongtinkhac
+                span Thông Tin Khác
+            table
+                tr
+                    th Mã Hàng
+                    td
+                tr
+                    th Nhà Cung Cấp
+                    td
+                tr
+                    th Tác Giả
+                    td
+                tr
+                    th Khối Lượng
+                    td
+                tr
+                    th Kích Thước
+                    td
+                tr
+                    th Ngôn Ngữ
+                    td
+                    
+        //- .container
+        //-     .content1
+        //-         .row
+        //-             .col-sm-3
+        //-                 img.img-responsive(src= book.image)
+        //-             .col-sm-6
+        //-                 div
+        //-                     span.tensach= book.name
+        //-                     br
+        //-                     span.gia= book.price +'đ'
+                            
+        //-                 hr
+        //-                 div
+        //-                     label Số Lượng: 
+        //-                     input(type='text', name='soluong', value='1', autocomplete='off')
+        //-                     a.mua(href='') Mua
+        //-                     br
+        //-                     br
+        //-                     a.yeuthich(href='')
+        //-                     span.fa.fa-heart
+        //-                     |  Yêu thích
+        //-                     hr
+        //-                     a.edit(href='')
+        //-                     span.fa.fa-edit
+        //-                     |  Thêm nhận xét 
+        //-                 hr
+        //-                 .review
+        //-                     span Review về sản phẩm: 
+        //-                     span= book.description
+        //-                     hr
+        //-             .col-sm-3.col-right
+        //-                 br
+        //-                 .link-col-right
+        //-                     span Nhà cung cấp: 
+        //-                 hr
+        //-                 .link-col-right
+        //-                     span Hình thức: 
+        //-                 hr
+        //-                 .link-col-right
+        //-                     span Tinhf trạng: 
+        //-                 hr      
+                           
+            
         // /CONTENT

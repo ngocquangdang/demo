@@ -13,27 +13,58 @@ block   content
     //-         lable(for="password") Password
     //-         input#password.form-control(type="password", name="password",  value=values ? values.password : '')
     //-     button(class="btn btn-primary " ) Login
-    .container
-        .col-sm-6.col-sm-offset-3
-            h1
-                span.fa.fa-sign-in
-                |  Login
-            // show any messages that come back with authentication
+    //- .container
+    //-     .col-sm-6.col-sm-offset-3
+    //-         h1
+    //-             span.fa.fa-sign-in
+    //-             |  Login
+    //-         // show any messages that come back with authentication
 
-            // LOGIN FORM
-            form( method='post')
-                .form-group
-                    label Email
-                    input.form-control(type="text", name="email", value=values  ? values.email : '')
-                .form-group
-                    label Password
-                    input.form-control(type="password", name="password",  value=values ? values.password : '')
-                button.btn.btn-warning.btn-lg(type='submit') Login
-            hr
-            p
-                | Need an account? 
-                a(href='/signup') Signup
-            p
-                | Or go 
-                a(href='/') home
-                | .
+    //-         // LOGIN FORM
+    //-         form( method='post')
+    //-             .form-group
+    //-                 label Email
+    //-                 input.form-control(type="text", name="email", value=values  ? values.email : '')
+    //-             .form-group
+    //-                 label Password
+    //-                 input.form-control(type="password", name="password",  value=values ? values.password : '')
+    //-             button.btn.btn-warning.btn-lg(type='submit') Login
+    //-         hr
+    //-         p
+    //-             | Need an account? 
+    //-             a(href='/signup') Signup
+    //-         p
+    //-             | Or go 
+    //-             a(href='/') home
+    //-             | .
+    .now-login
+        .content
+            .title Sign up
+            .login-via
+                div
+                    .item.phone
+                        span.fas.fa-mobile-alt
+                        | Số Điện thoại
+                .item.fb
+                    span.fab.fa-facebook-f
+                    | Facebook
+                form#google-login-form(action='https://accounts.google.com/o/oauth2/v2/auth', method='GET')
+                    .item.plus
+                        i.fab.fa-google-plus-g
+                        | Google
+            p.text Đăng nhập vào tài khoảng
+            form.form-login-input( method='post')
+                .field-group
+                    .input-group
+                        i.far.fa-envelope
+                        input(type='text', placeholder='Username or email', name="email", value=values  ? values.email : '' )
+                    .input-group
+                        i.fas.fa-lock
+                        input(type='password', placeholder='Password', name="password",  value=values ? values.password : '')
+                .form-group.clearfix
+                    .float-left
+                        input#RememberMe(type='checkbox', checked='')
+                        label(for='RememberMe') Lưu thông tin đăng nhập
+                    span.float-right
+                        a(href='/create') Đăng ký
+                button.btn.btn-block.btn-submit(type='submit') ĐĂNG NHẬP

@@ -38,11 +38,37 @@ module.exports.search = function(req,res){//page search'''
         // }
      })
 }
-module.exports.create = function(req,res){
-    // console.log(req.cookies)
-
-    res.render('users/create')
+module.exports.delete = function(req,res){
+    var id = req.params.id
+    User.findOneAndDelete({_id: id}, (err) =>{
+        if(err) throw err
+        console.log('delete ok')
+        res.redirect('/User')
+    })      
 }
+module.exports.edit = function(req,res){
+    var id = req.params.id
+    User.findOne({_id: id})
+    .then((userId) =>{
+        if(userId){
+            res.render('users/editUser',{
+                users: userId
+            })
+        }
+    })
+}
+module.exports.update = function(req,res){
+    var newUpdate ={
+        name: req.body.name,
+        phone: req.body.phone
+    }
+    User.findByIdAndUpdate(req.body.id, newUpdate,(err) =>{
+        if(!err){
+            res.redirect('/User')
+        }
+    })
+}
+
 module.exports.viewUserbyId =  function(req,res){
     var id = req.params.id       //route para
     //-- use db.json
@@ -60,24 +86,6 @@ module.exports.viewUserbyId =  function(req,res){
           console.log("no data exist for this id");
         }
      })
- 
 }
-module.exports.postCreate = async function(req,res){
-    // req.body.id = shortId.generate()
-    // console.log(req.file.filename)
-    // var path = 'uploads\\'
-    // req.body.img = path + req.file.filename
-    // req.body.img =req.file.path.split('\\').slice(1).join('/')
-    // db.get('users').push(req.body).write()
-    // res.redirect('/User')
-
-    // req.body.img = path + req.file.filename
-    req.body.image =req.file.path.split('\\').slice(1).join('/')
-
-    // var user = await User.find()
-    User.collection.save(req.body)
-    res.redirect('/User')
-}
-
 
 

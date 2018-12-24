@@ -1,0 +1,8 @@
+extends ../layouts/common
+block   content
+    
+    .d-flex.align-itms-center
+        form.ml-auto(action="/User/update", method="get", class="d-flex")
+            input(type="text", class="form-control",name='name', value=users.name )
+            input(type="text", class="form-control",name='phone', value=users.phone)         
+            button(class="btn btn-primary ml-2" ) Update

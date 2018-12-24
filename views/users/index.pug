@@ -37,4 +37,6 @@ block   content
                 td= val.name
                 td= val.phone
                 td
-                    a.btn.btn-light(href="/User/" + val.id)  view
+                    a.btn.btn-light(href="/User/" + val.id)  view 
+                    a.btn.btn-light(href="/User/delete/" + val.id) delete 
+                    a.btn.btn-light(href="/User/edit/" + val.id) edit
