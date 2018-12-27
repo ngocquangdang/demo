@@ -3913,7 +3913,7 @@ input[type="submit"].btn-block {
 }
 .modal-search-form {
   text-align: center;
-  background-image: url(/desktop-app/assets/img/bg-search.png?40df121cbb04a250ef2bd237a1e621b1);
+  background-image: url("../img/bg-search.png?40df121cbb04a250ef2bd237a1e621b1");
   background-position: top;
   background-repeat: no-repeat;
   padding-top: 140px;

@@ -13,8 +13,8 @@ router.get('/search', controllers.search)
 
 router.get('/:id', controllers.viewUserbyId)
 router.get('/delete/:id', controllers.delete)
-router.get('/edit/:id', controllers.edit)
-router.get('/update/:id', controllers.update)
+// router.get('/edit/:id', controllers.edit)
+router.get('/update', controllers.update)
 
 
 

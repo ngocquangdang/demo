@@ -9,7 +9,7 @@ module.exports.postlogin = async function(req,res,next){
     var email = req.body.email
     var password = req.body.password
     // var user = db.get('users').find({'email': email}).value()
-    var user = await User.find({email: email},(err)=> {
+    var user = await User.find({email: email},(err, user)=> {
         if(err){
             res.render('auth/login',{
                 errors: [
@@ -18,6 +18,7 @@ module.exports.postlogin = async function(req,res,next){
             })
             return
         }
+        
     })
   
     // if(!user){
@@ -29,7 +30,7 @@ module.exports.postlogin = async function(req,res,next){
     //     })
     //     return
     // }
-    console.log(user[0])
+    
     var hashMd5 = md5(password)
     if(user[0].password != hashMd5){
         res.render('auth/login',{
@@ -41,20 +42,31 @@ module.exports.postlogin = async function(req,res,next){
         })
         return
     }
-
     res.cookie('userId', user[0].id,{
         signed: true
     })
     res.redirect('/')
+    
+    
+
+    
 }
 module.exports.logout = function(req, res) {
-    req.logout()
-    res.redirect('/')
+    res.clearCookie('userId')
+    res.redirect('/login')
 }
 
-
-module.exports.create = function(req,res){
-    res.render('auth/create')
+module.exports.create =async function(req,res){
+    await User.findById(req.signedCookies.userId)
+    .then((user) =>{
+        if(!user){
+            res.render('auth/create')
+        }
+        else{
+            res.redirect('/')
+        }
+    })
+    
 }
 module.exports.postCreate = async function(req,res){
     // req.body.id = shortId.generate()
@@ -70,6 +82,7 @@ module.exports.postCreate = async function(req,res){
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
+        role: "haha",
         password: md5(req.body.password),
         image: req.file.path.split('\\').slice(1).join('/')
     }

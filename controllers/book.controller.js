@@ -5,6 +5,7 @@ module.exports.createBook = function(req,res){
 }
 module.exports.postCreatebook = async function(req,res){
     req.body.image = '/' + req.file.path.split('\\').slice(1).join('/')
-    Book.collection.save( req.body)
+    console.log(req.body)
+    await Book.collection.save( req.body)
     res.redirect('/')
 }

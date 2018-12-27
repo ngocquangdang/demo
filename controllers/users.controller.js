@@ -60,22 +60,23 @@ module.exports.edit = function(req,res){
 module.exports.update = function(req,res){
     var newUpdate ={
         name: req.body.name,
-        phone: req.body.phone
+        email: req.body.email,
+        password: md5(req.body.password)   
     }
-    User.findByIdAndUpdate(req.body.id, newUpdate,(err) =>{
+    User.findByIdAndUpdate(req.signedCookies.userId, {newUpdate},(err) =>{
         if(!err){
             res.redirect('/User')
         }
     })
 }
 
-module.exports.viewUserbyId =  function(req,res){
+module.exports.viewUserbyId = async function(req,res){
     var id = req.params.id       //route para
     //-- use db.json
     // var user = db.get('users').find({id: id}).value()
     //-- use db.json
 
-    User.findOne({_id:id})
+    await User.findById(id)
     .then((userId) => {
         if (userId) {
             res.render('users/view',{

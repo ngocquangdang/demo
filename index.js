@@ -17,7 +17,7 @@ var indexRoute = require('./routes/index.router')
 var userRoute = require('./routes/users.router')
 // var products = require('./routes/products.router')
 var bookRoute = require('./routes/book.router')
-
+var profile = require('./routes/profile.router')
 mongoose.connect(process.env.MONGO_URL);
 
 var loginMiddleware = require('./Middelware/login.Middleware')
@@ -46,12 +46,12 @@ app.use(express.static('views'))
 // app.use(sessionMiddleware)
 
 
-app.use('/User',loginMiddleware.requireAuth, userRoute)
-
-// app.use('/Product', products)
-app.use('/',indexRoute)
+app.use(loginMiddleware.checkUser)
+app.use('/User',loginMiddleware.requireAuth, loginMiddleware.role, userRoute)
+app.use('/profile',loginMiddleware.requireAuth, profile)
 app.use('/createBook',bookRoute)
-
+app.use('/',indexRoute)
+// app.use('/Product', products)
 
 
 app.listen(5000, function(){

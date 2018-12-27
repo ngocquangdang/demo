@@ -8,10 +8,26 @@ module.exports.requireAuth =async function(req,res,next){
     }
     // var user = db.get('users').find({id: req.signedCookies.userId}).value()
     var user = await User.findById(req.signedCookies.userId)
+    
     if(!user){
         res.redirect('/login')
-    
+        next()
     }
+    // res.locals.user = user
+   next()
+}
+module.exports.role =async  function(req,res,next){
+
+    var user =await  User.findById(req.signedCookies.userId)
+    // console.log(user.role)
+    if(user.role !== 'a'){
+        res.redirect('/')
+        
+    }
+    next()
+}
+module.exports.checkUser = async function(req,res, next){
+    var user = await User.findById(req.signedCookies.userId)
     res.locals.user = user
     next()
 }

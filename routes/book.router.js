@@ -7,7 +7,7 @@ var upload = multer({ dest: './public/img/' })
 var router = express.Router()
 
 router.get('/', controllers.createBook)
-router.post('/createBook', upload.single('img'), controllers.postCreatebook)
+router.post('/create', upload.single('img'), controllers.postCreatebook)
 
 
 module.exports = router

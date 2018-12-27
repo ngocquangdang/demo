@@ -1,15 +1,15 @@
 var Book = require('../models/books.model')
 
 module.exports.index = async function(req, res, next){
-    var books = await Book.find()
+    var books = await Book.find().limit(9)
     res.render('index',{
         book : books
     }) 
 }
-module.exports.viewBookbyId = function(req, res, next){
+module.exports.viewBookbyId =async function(req, res, next){
     var id = req.params.id
     
-    Book.findOne({_id: id})
+    await Book.findById(id)
     .then((bookId) => {
         if(bookId){
             res.render('products/chitiet',{

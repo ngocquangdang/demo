@@ -73,20 +73,6 @@ block  content
                 p.font15
                     |Một cái gì đó.
             img(src='#', alt='Ảnh để đây')
-    
-    .container
-        .now-list-restaurant
-            .list-restaurant
-                each val in book 
-                    .item-restaurant
-                        a.item-content(target='_blank', href='/' + val.id)
-                            .img-restaurant
-                                img(src= val.image)
-                            .info-restaurant
-                                .info-basic-res
-                                    h4.name-res(title= val.name)= val.name
-                                p.content-promotion
-                                    i.fas.fa-tag= val.price +'đ'
 
     //- .container
     //-     //- h3 Điện Thoại - Máy Tính Bảng

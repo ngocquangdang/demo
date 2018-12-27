@@ -1,4 +1,69 @@
-h1 View user
-p 
-    b Name:
-    span= users.name
+//- h1 View user
+//- p 
+//-     b Name:
+//-     span= users.name
+extends ../layouts/common
+block   content
+    .container  
+        .now-navigation-profile
+            .header-profile
+                .row.align-items-center
+                    .col-auto
+                        img.avatar-circle(src="/"+ users.image, alt= users.name)
+                    .col.txt-bold.font15= users.name
+            .navigation-profile
+                a.item-navigation.active(title='Cập nhật tài khoản', href='#')
+                    .row
+                        .col-auto
+                            i.fas.fa-user
+                        .col Cập nhập tài khoảng
+                        .col-auto
+                            i.icon-arrow-thin.right
+                .hr
+                .item-navigation
+                    a(title='update_address', href='#')
+                        .row
+                            .col-auto
+                                i.fas.fa-shopping-cart
+                            .col Thông tin đơn hàng
+                            .col-auto
+                                i.icon-arrow-thin.right
+        .now-detail-profile
+            .header-user-profile Thông tin người dùng
+            .content-user-profile
+                .user-profile-update
+                    .title-user Tải ảnh đại diện
+                    .row
+                        .col-3
+                            .user-avatar-image
+                                img#avatar_user(src="/"+ users.image, alt='')
+                        .col-9
+                            .form-group
+                                span Tải lên từ
+                                    .custom-file-image
+                                        input#validatedCustomFile.input-custom(type='file', required='', hidden='', accept='image/*',name="img")
+                                        label.label-custom(for='validatedCustomFile') Chọn
+                            button.btn.btn-blue-4(type='button') Cập nhập
+                .user-profile-update
+                    form
+                        .title-user Thay đổi thông tin
+                        .row.form-group.align-items-center
+                            .col-3.txt-bold Tên
+                            .col-4
+                                .input-group
+                                    input.form-control(name="name", placeholder='Tên', type='text', value= users.name)
+                        .row.form-group.align-items-center
+                            .col-3.txt-bold Email
+                            .col-4
+                                .input-group
+                                    input.form-control(name="email", placeholder='Nhập email mới', type='text', value= users.email)
+                        .row.form-group.align-items-center
+                            .col-3.txt-bold Mật khẩu
+                            .col-4
+                                .input-group.validate-pass
+                                    input.form-control(name="password", placeholder='Nhập mật khẩu mới', type='password', value='')
+
+                        .row
+                            .col-3
+                                button.btn.btn-blue-4.btn-block(type='submit') Lưu thay đổi
+                
