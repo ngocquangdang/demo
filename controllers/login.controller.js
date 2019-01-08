@@ -9,16 +9,16 @@ module.exports.postlogin = async function(req,res,next){
     var email = req.body.email
     var password = req.body.password
     // var user = db.get('users').find({'email': email}).value()
-    var user = await User.find({email: email},(err, user)=> {
+    var user = await User.find({email: email},(err)=> {
         if(err){
             res.render('auth/login',{
                 errors: [
                     'Error email.!'
-                ],values: req.body
+                ],
+                values: req.body
             })
             return
-        }
-        
+        } 
     })
   
     // if(!user){
@@ -45,17 +45,12 @@ module.exports.postlogin = async function(req,res,next){
     res.cookie('userId', user[0].id,{
         signed: true
     })
-    res.redirect('/')
-    
-    
-
-    
+    res.redirect('/')   
 }
 module.exports.logout = function(req, res) {
     res.clearCookie('userId')
     res.redirect('/login')
 }
-
 module.exports.create =async function(req,res){
     await User.findById(req.signedCookies.userId)
     .then((user) =>{
@@ -66,7 +61,6 @@ module.exports.create =async function(req,res){
             res.redirect('/')
         }
     })
-    
 }
 module.exports.postCreate = async function(req,res){
     // req.body.id = shortId.generate()
@@ -87,8 +81,5 @@ module.exports.postCreate = async function(req,res){
         image: req.file.path.split('\\').slice(1).join('/')
     }
     User.collection.save(createUser)
-    res.redirect('/User')
-}
-module.exports.profile = function(req, res){
-    
+    res.redirect('/profile')
 }

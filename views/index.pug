@@ -1,7 +1,9 @@
 extends ./layouts/common
 
 block  content
-    
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
     //- .container.pt-1
     //-     nav.navbar.navbar-expand-lg.navbar-light.bg-light
     //-         form.form-inline.my-2.my-lg-0(action="/search", method="get")
@@ -16,29 +18,37 @@ block  content
     //-             input#txtSearchHome(type='text', name = 'q', value='')
     //-                 button.btn.btn-search(type='button')
     //-                     span.icon.icon-search
+    .container
+        .list(style='padding-top: 20px')
+            #myCarousel.carousel.slide(data-ride='carousel')
+                // Indicators
+                ol.carousel-indicators
+                    li.active(data-target='#myCarousel', data-slide-to='0')
+                    li(data-target='#myCarousel', data-slide-to='1')
+                    li(data-target='#myCarousel', data-slide-to='2')
+                // Wrapper for slides
+                .carousel-inner
+                    .item.active
+                        img(src='img/3.jpg', alt='', style='width:100%;')
+                    .item
+                        img(src='img/2.jpg', alt='', style='width:100%;')
+                    .item
+                        img(src='img/1.jpg', alt='', style='width:100%;')
+                // Left and right controls
+                a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                    span.glyphicon.glyphicon-chevron-left
+                    span.sr-only Previous
+                a.right.carousel-control(href='#myCarousel', data-slide='next')
+                    span.glyphicon.glyphicon-chevron-right
+                    span.sr-only Next
 
-    .now-banner.ver_vi(style='position: absolute;')
-        .container
-            .now-search
-                form.form-search(action="/search", method="get")
-                    .input-group
-                        input#txtSearchHome(type='search', placeholder='Toan, Ly, Van...', name = 'q', value='')
-                        button.btn.btn-search
-                            span.icon.icon-search
-                .category-list-filter
-                    a(href='#')
-                        span.category-item Tin 
-                    a(href='#')
-                        span.category-item Văn Học  
-                    a(href='#')
-                        span.category-item Kỹ Năng
-                    a(href='#')
-                        span.category-item Kinh Tế   
-    .contain-main-home.clearfix
-        .container
-            .main-right-home
+    .container
+        .main-right-home(style='padding-top: 25px')
                 .title
-                    | xem
+                    | Deal
+                    a.view-all-deal(href='#')
+                        
+                        | Văn Học
                     a.view-all-deal(href='/book:1')
                         span.icon-list-deal
                             span.square
@@ -48,9 +58,7 @@ block  content
                         | Xem thêm
                 .now-list-restaurant.deal-tab            
                     .list-restaurant
-                        each val in book 
-                            if val === 9
-                                break
+                        each val in book
                             .item-restaurant
                                 a.item-content(target='_blank', href='/' + val.id)
                                     .img-restaurant
@@ -59,13 +67,11 @@ block  content
                                         .info-basic-res
                                             h4.name-res(title= val.name)= val.name
                                         p.content-promotion
-                                            i.fas.fa-tag= val.price +'đ'
-                            
-                    .txt-center.mt-2
-                        button.btn-none.btn-load-more.link
-                        span.pr-1 Load more
-                        i.fas.fa-redo.font12
-    .container
+                                            i.fas.fa-tag= val.price +'đ'             
+                    .row
+                        .col-sm-12.text-center
+                            a(href='/book:1') XEM THÊM
+    .container(style='padding-top: 20px')
         .now-container-coporation
             h4.title
                 span Mô tả sơ sơ
@@ -73,87 +79,4 @@ block  content
                 p.font15
                     |Một cái gì đó.
             img(src='#', alt='Ảnh để đây')
-
-    //- .container
-    //-     //- h3 Điện Thoại - Máy Tính Bảng
-    //-     #myCarousel.carousel.slide(data-ride='carousel')
-    //-         // Indicators
-    //-         ol.carousel-indicators
-    //-             li.active(data-target='#myCarousel', data-slide-to='0')
-    //-             li(data-target='#myCarousel', data-slide-to='1')
-    //-             li(data-target='#myCarousel', data-slide-to='2')
-    //-         // Wrapper for slides
-    //-         .carousel-inner
-    //-             .item.active
-    //-                 img(src='img/3.jpg', alt='', style='width:100%;')
-    //-             .item
-    //-                 img(src='img/2.jpg', alt='', style='width:100%;')
-    //-             .item
-    //-                 img(src='img/1.jpg', alt='', style='width:100%;')
-    //-         // Left and right controls
-    //-         a.left.carousel-control(href='#myCarousel', data-slide='prev')
-    //-             span.glyphicon.glyphicon-chevron-left
-    //-             span.sr-only Previous
-    //-         a.right.carousel-control(href='#myCarousel', data-slide='next')
-    //-             span.glyphicon.glyphicon-chevron-right
-    //-             span.sr-only Next
-
-    //-     .content
-    //-         .title-gachchan
-    //-             span.title1 DEALS 24H 
-    //-             ul.nav.navbar-nav.navbar-right.hidden-xs
-    //-                 li
-    //-                     a(href='') Văn Học 
-    //-                 li
-    //-                     a(href='') Kỹ Năng 
-    //-                 li
-    //-                     a(href='') Kinh Tế
-    //-         br
-    //-         //- .row
-    //-         //-     each val in book
-    //-         //-         .col-md-2.col-sm-3.col-xs-6
-    //-         //-             a(href='/' + val.id)
-    //-         //-                 img.thumbnail.img-responsive(src= val.image)
-    //-         //-             .caption
-    //-         //-                 h5.card-title= val.name
-    //-         //-                 hr
-    //-         //-                 span.card-text= val.price +'đ'
-    //-         .now-list-restaurant.deal-tab            
-    //-             .list-restaurant
-    //-                 each val in book
-    //-                     .item-restaurant
-    //-                         a.item-content(target='_blank', href='/' + val.id)
-    //-                             .img-restaurant
-    //-                                 img(src= val.image)
-    //-                             .info-restaurant
-    //-                                 .info-basic-res
-    //-                                     h4.name-res(title= val.name)= val.name
-    //-                                 p.content-promotion
-    //-                                     i.fas.fa-tag= val.price +'đ'
-                                    
-    //-         .row
-    //-             .col-sm-12.text-center
-    //-                 a(href='/book/1') XEM THÊM
-    //-     hr            
-    //-     .content
-    //-         .title-gachchan
-    //-             span.title1 Điện Thoại - Máy Tính Bảng
-    //-             ul.nav.navbar-nav.navbar-right.hidden-xs
-    //-                 li
-    //-                     a(href='') Iphone 
-    //-                 li
-    //-                     a(href='') Samsung 
-    //-                 li
-    //-                     a(href='') Xiaomi
-    //-         br
-    //-         .row
-    //-             each val in book
-    //-                 .col-md-2.col-sm-3.col-xs-6
-    //-                     a(href='/' + val.id)
-    //-                         img.thumbnail.img-responsive(src= val.image)
-    //-                     .caption
-    //-                         h5.card-title= val.name
-    //-                         span.card-text= val.price +'đ'
-    //-         .row
-    //-             .col-sm-12.text-center
-    //-                 a(href='') XEM THÊM
+        hr

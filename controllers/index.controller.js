@@ -1,7 +1,7 @@
 var Book = require('../models/books.model')
 
 module.exports.index = async function(req, res, next){
-    var books = await Book.find().limit(9)
+    var books = await Book.find().limit(10)
     res.render('index',{
         book : books
     }) 
@@ -21,11 +21,10 @@ module.exports.viewBookbyId =async function(req, res, next){
         }
     })
 }
-
-module.exports.searchBook = function (req, res, next){
+module.exports.searchBook =async function (req, res, next){
     var q= req.query.q
 
-    Book.find({name: new RegExp(  q,  "i")})
+    await Book.find({name: new RegExp(  q,  "i")})
     .then((searchBook) => {
         if(searchBook){
             res.render('listviews/listBooks',{
@@ -41,10 +40,10 @@ module.exports.listBook = async function(req, res, next){
     })
 }
 module.exports.pagination = function(req, res){
-    var perPage = 9
+    var perPage = 10
     var page = req.params.page || 1
     // var books = await Book.find()
-     Book
+    Book
         .find()
         .skip((perPage * page) - perPage)
         .limit(perPage)

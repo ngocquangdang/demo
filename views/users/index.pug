@@ -16,13 +16,15 @@ block   content
                 th Image
                 th Name
                 th Phone
+                th Roles
                 th Actions
             each val in users
                 tr
                     td
-                        img(src= val.image,width="64")
+                        img.avatar-circle(src="/"+ val.image,width="64")
                     td= val.name
                     td= val.phone
+                    td= val.role
                     td
                         a.btn.btn-blue(href="/User/" + val.id)  view 
                         a.btn.btn-red(href="/User/delete/" + val.id) delete 

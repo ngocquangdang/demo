@@ -39,6 +39,9 @@ block   content
     //-             | .
     .now-login
         .content
+            if  errors 
+                each err in errors
+                    .alert.alert-danger= err
             .title Sign up
             .login-via
                 div

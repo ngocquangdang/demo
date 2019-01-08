@@ -38,9 +38,9 @@ module.exports.search = function(req,res){//page search'''
         // }
      })
 }
-module.exports.delete = function(req,res){
+module.exports.delete = async function(req,res){
     var id = req.params.id
-    User.findOneAndDelete({_id: id}, (err) =>{
+    await User.findByIdAndDelete(id, (err) =>{
         if(err) throw err
         console.log('delete ok')
         res.redirect('/User')
@@ -69,7 +69,6 @@ module.exports.update = function(req,res){
         }
     })
 }
-
 module.exports.viewUserbyId = async function(req,res){
     var id = req.params.id       //route para
     //-- use db.json

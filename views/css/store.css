@@ -13073,7 +13073,7 @@ span.flatpickr-weekday {
 }
 .main-right-home .now-list-restaurant .item-restaurant {
   padding: 8px;
-  width: 33.33333%;
+  width: 20%;
 }
 .main-right-home .now-list-restaurant .img-restaurant {
   height: 116px;
@@ -13762,8 +13762,8 @@ span.flatpickr-weekday {
 }
 .now-detail-restaurant .detail-restaurant-info {
   color: #252525;
-  float: right;
-  width: 720px;
+  float: left;
+  width: 470px;
   padding-bottom: 15px;
 }
 .now-detail-restaurant .breadcrumb {
@@ -14325,8 +14325,8 @@ body {
   border-radius: 4px;
   border: 1px solid #ebebeb;
   position: absolute;
-  top: 48px;
-  right: 10px;
+  top: 155px;
+  right: 300px;
   width: 315px;
 }
 .now-bill-restaurant .bill-restaurant-header {

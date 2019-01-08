@@ -21,8 +21,7 @@ module.exports.role =async  function(req,res,next){
     var user =await  User.findById(req.signedCookies.userId)
     // console.log(user.role)
     if(user.role !== 'a'){
-        res.redirect('/')
-        
+        res.redirect('/profile')
     }
     next()
 }

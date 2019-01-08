@@ -4,7 +4,7 @@ var multer  = require('multer')
 const indexs = require('../controllers/index.controller')
 const logins = require('../controllers/login.controller')
 const validate = require('../validate/users.validate')
-var upload = multer({ dest: './public/uploads/' })
+var upload = multer({ dest: './public/avatar/' })
 
 var router = express.Router()
 

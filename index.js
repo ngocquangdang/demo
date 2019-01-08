@@ -49,7 +49,7 @@ app.use(express.static('views'))
 app.use(loginMiddleware.checkUser)
 app.use('/User',loginMiddleware.requireAuth, loginMiddleware.role, userRoute)
 app.use('/profile',loginMiddleware.requireAuth, profile)
-app.use('/createBook',bookRoute)
+app.use('/createBook',loginMiddleware.requireAuth, bookRoute)
 app.use('/',indexRoute)
 // app.use('/Product', products)
 
