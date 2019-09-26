@@ -1,7 +1,6 @@
 {
   "name": "webindex",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect index.js",
@@ -30,5 +29,14 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quang98/web-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Quang98/web-express/issues"
+  },
+  "homepage": "https://github.com/Quang98/web-express#readme",
+  "description": ""
 }

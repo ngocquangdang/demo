@@ -76,7 +76,7 @@ module.exports.postCreate = async function(req,res){
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
-        role: "haha",
+        role: "us",
         password: md5(req.body.password),
         image: req.file.path.split('\\').slice(1).join('/')
     }

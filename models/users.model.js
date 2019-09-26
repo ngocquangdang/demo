@@ -3,16 +3,7 @@ var bcrypt   = require('bcrypt-nodejs');
 
 var userSchema = new mongooes.Schema({
 
-        email: {
-                        type: String,
-                        required: true,
-                        unique: true,
-                        lowercase: true,
-                        validate: (value) => {
-                                return validator.isEmail(value)
-                        }
-
-                },
+        email: String,
         password: String,
         name: String,
         phone: String,
